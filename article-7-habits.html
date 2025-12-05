@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完訳 7つの習慣 | ベジータの戦闘力図書館</title>
+    <meta name="description" content="貴様らに真の原則主義を教えてやる。この『7つの習慣』には、エリート戦士が守るべき鉄則が記されている。">
+    <!-- Google Fonts: 筆文字フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho+B1:wght@800&family=Zen+Antique&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           グローバル設定
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+            font-size: 17px;
+            line-height: 2.0;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2332 25%, #0f3460 50%, #1a2332 75%, #0a1628 100%);
+            background-size: 400% 400%;
+            animation: cosmicGradient 20s ease infinite;
+        }
+
+        @keyframes cosmicGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* 宇宙空間の星 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent);
+            background-size: 200% 200%;
+            animation: stars 50s linear infinite;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           ヘッダー
+        ======================================== */
+        header {
+            padding: 40px 0;
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d4af37;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        /* ========================================
+           記事ヘッダー
+        ======================================== */
+        .article-header {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .category-badge {
+            display: inline-block;
+            font-size: 56px;
+            font-weight: 900;
+            color: #d4af37;
+            margin-bottom: 24px;
+            font-family: 'Yuji Mai', 'Shippori Mincho B1', '游明朝体', serif;
+            text-shadow: 0 3px 12px rgba(212, 175, 55, 0.6);
+        }
+
+        .article-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.4;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            margin-bottom: 48px;
+        }
+
+        /* ========================================
+           記事本文
+        ======================================== */
+        .article-body {
+            padding: 60px 0;
+        }
+
+        .book-info {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 48px;
+            margin-bottom: 56px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .book-cover {
+            flex-shrink: 0;
+        }
+
+        .book-cover img {
+            width: 240px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .book-details h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 16px;
+        }
+
+        .book-details p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+        }
+
+        .book-details .rating {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .rating-stars {
+            color: #d4af37;
+            font-size: 24px;
+        }
+
+        .rating-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .affiliate-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn-affiliate {
+            flex: 1;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #0a1628;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-affiliate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 48px;
+            margin-bottom: 40px;
+        }
+
+        .content-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .content-section h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .content-section p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+        }
+
+        .content-section ul {
+            margin: 24px 0;
+            padding-left: 32px;
+        }
+
+        .content-section li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        /* ========================================
+           フッター
+        ======================================== */
+        footer {
+            background: rgba(10, 22, 40, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 60px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #0a1628;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        footer p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ========================================
+           レスポンシブ
+        ======================================== */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 32px;
+            }
+
+            .book-info {
+                flex-direction: column;
+                padding: 32px 24px;
+            }
+
+            .book-cover img {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .affiliate-buttons {
+                flex-direction: column;
+            }
+
+            .content-section {
+                padding: 32px 24px;
+            }
+
+            .category-badge {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">戦闘力図書館</a>
+        </div>
+    </header>
+
+    <!-- 記事ヘッダー -->
+    <section class="article-header">
+        <div class="container">
+            <div class="category-badge">技</div>
+            <h1 class="article-title">完訳 7つの習慣 - 人格主義の回復</h1>
+            <div class="article-meta">
+                <span>📅 2025年12月4日</span>
+                <span>📚 思考の技術</span>
+                <span>⏱️ 読了時間: 約15時間</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 記事本文 -->
+    <main class="article-body">
+        <div class="container">
+            <!-- 書籍情報 -->
+            <div class="book-info">
+                <div class="book-cover">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=J9mHC2esJN59uVSGWgeEHyNXiqBQmo7AWWkAOfRK6Vr9DtLbOCvTh6bIuLjPpXVW8rWSiRGvOVf9wYzUnl55U952fQ%3D%3D&u2=eL2mk2ixJsTlvTCT&width=2560" alt="完訳 7つの習慣">
+                </div>
+                <div class="book-details">
+                    <h2>完訳 7つの習慣<br>人格主義の回復</h2>
+                    <p><strong>著者:</strong> スティーブン・R・コヴィー</p>
+                    <p><strong>出版社:</strong> キングベアー出版</p>
+                    <p><strong>ページ数:</strong> 約560ページ</p>
+                    
+                    <div class="rating">
+                        <span class="rating-stars">★★★★★</span>
+                        <span class="rating-text">戦闘力: 9,500</span>
+                    </div>
+
+                    <div class="affiliate-buttons">
+                        <a href="https://www.amazon.co.jp/dp/4863940246" target="_blank" rel="nofollow" class="btn-affiliate">
+                            Amazonで購入する
+                        </a>
+                        <a href="#" target="_blank" rel="nofollow" class="btn-affiliate">
+                            楽天ブックスで見る
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ベジータの評価 -->
+            <div class="content-section">
+                <div class="highlight-box">
+                    <p>「テクニックではなく、原則に従え。それが真の強者への道だ。」</p>
+                </div>
+                
+                <h2>この俺が認めた理由</h2>
+                <p>貴様らに教えてやる。この書物は、弱者が読むような薄っぺらい自己啓発本とは次元が違う。</p>
+                
+                <p>世界3,000万部を超える売上を誇るこの名著には、<strong>真の成功者が守るべき「原則」</strong>が記されている。小手先のテクニックではない。人格そのものを変革する、エリート戦士のための書物だ。</p>
+
+                <p>この俺、ベジータが認める書物は数少ない。だが、この『7つの習慣』は、貴様らが最強を目指すなら必ず読むべき一冊だ。</p>
+            </div>
+
+            <!-- 7つの習慣の解説 -->
+            <div class="content-section">
+                <h2>7つの習慣とは何か</h2>
+                <p>コヴィーが説く7つの習慣は、以下の通りだ。弱者には理解できんだろうがな。</p>
+
+                <h3>第一の習慣: 主体的である</h3>
+                <p>環境や他人のせいにするな。自分の人生は自分で決める。これがエリートの第一歩だ。貴様らのような弱者は、すぐに「環境が悪い」「運が悪い」と言い訳する。だが、真の戦士は自らの選択に責任を持つ。</p>
+
+                <h3>第二の習慣: 終わりを思い描くことから始める</h3>
+                <p>目標なき戦いに意味はない。最強を目指すなら、まず「最強とは何か」を明確にしろ。この俺は常に、カカロットを超えるという明確な目標を持っている。</p>
+
+                <h3>第三の習慣: 最優先事項を優先する</h3>
+                <p>重要なことに集中しろ。くだらない雑務に時間を奪われるな。エリート戦士は、戦闘力を高めることに全力を注ぐ。それ以外は二の次だ。</p>
+
+                <h3>第四の習慣: Win-Winを考える</h3>
+                <p>フン、他者との協力か。この俺は一人で十分だと思っていたが...真の強者は、時に他者と協力することで、さらなる高みに到達できる。それを認めよう。</p>
+
+                <h3>第五の習慣: まず理解に徹し、そして理解される</h3>
+                <p>相手の話を聞け。ただし、弱者の戯言に耳を傾ける必要はない。強者の言葉を理解し、自らも強者として理解されるのだ。</p>
+
+                <h3>第六の習慣: シナジーを創り出す</h3>
+                <p>1+1が3にも10にもなる。これがシナジーだ。この俺とトランクスが協力した時、想像以上の力が生まれた。それを否定はせん。</p>
+
+                <h3>第七の習慣: 刃を研ぐ</h3>
+                <p>継続的な自己研鑽。これこそがエリート戦士の本質だ。この俺は毎日、重力室で修行を欠かさない。貴様らも、日々の鍛錬を怠るな。</p>
+            </div>
+
+            <!-- どんな人におすすめか -->
+            <div class="content-section">
+                <div class="highlight-box">
+                    <p>「この書物を読んでも何も変わらない奴は、そもそも読む資格がない。」</p>
+                </div>
+                
+                <h2>どんな奴が読むべきか</h2>
+                <ul>
+                    <li><strong>本気で最強を目指す者</strong> - 中途半端な覚悟の弱者は読むな</li>
+                    <li><strong>リーダーを目指す者</strong> - 組織を率いる者には必須の知識だ</li>
+                    <li><strong>人生を変えたい者</strong> - 小手先のテクニックではなく、根本から変わりたい奴</li>
+                    <li><strong>ビジネスで成功したい者</strong> - 真のビジネス戦士になりたいならこれを読め</li>
+                    <li><strong>エリート意識の高い者</strong> - 凡人とは違う、という自覚がある奴</li>
+                </ul>
+            </div>
+
+            <!-- 俺からの最終評価 -->
+            <div class="content-section">
+                <h2>最終評価</h2>
+                <p>この『7つの習慣』は、この俺が認める数少ない書物の一つだ。</p>
+                
+                <p>560ページを超える分厚い本だが、その一言一句に、真の成功者になるための原則が詰まっている。読むのに時間はかかるが、それだけの価値がある。</p>
+
+                <p>貴様らが本気で最強を目指すなら、今すぐこの書物を手に取れ。そして、7つの習慣を実践しろ。</p>
+
+                <div class="highlight-box">
+                    <p><strong>戦闘力評価: 9,500 / 10,000</strong><br>
+                    この俺が認めた、真のエリート戦士のための必読書だ。</p>
+                </div>
+
+                <div class="affiliate-buttons">
+                    <a href="https://www.amazon.co.jp/dp/4863940246" target="_blank" rel="nofollow" class="btn-affiliate">
+                        今すぐAmazonで手に入れろ
+                    </a>
+                    <a href="#" target="_blank" rel="nofollow" class="btn-affiliate">
+                        楽天で購入しろ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <a href="index.html" class="back-link">他の書物を見る</a>
+            <p>&copy; 2025 ベジータの戦闘力図書館. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
