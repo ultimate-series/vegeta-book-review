@@ -15,23 +15,22 @@ const articlesData = [
         url: "article-7-habits.html",
         rating: 9500,
         featured: true
+    },
+    {
+        id: 2,
+        title: "十角館の殺人",
+        subtitle: "新本格ミステリーの原点、この俺が認めた推理小説だ",
+        category: "語",
+        categoryName: "小説・物語",
+        author: "綾辻行人",
+        date: "2025.12.05",
+        image: "https://sspark.genspark.ai/cfimages?u1=LmFAyUq4fODWsXy4i%2FfTMtx4cgnrBS6AGfK9zBdOKGDtLrudmyeMeoZ%2BO0qcq%2BsCoYhwmBsvKxe9QLXJkIWhZIi4pacjfybv%2F9CNyWDUXv3yoMOUh0w6jMA%3D&u2=yqvQ1jfXdpGFOeZj&width=2560",
+        excerpt: "新本格ミステリーの原点。孤島の館で繰り広げられる連続殺人、そして衝撃のラスト――この一撃を受けて立てる者だけが、真の推理小説ファンだ。",
+        url: "article-jukkakukan.html",
+        rating: 9200,
+        featured: false
     }
     // 新しい記事はここに追加
-    // 例:
-    // {
-    //     id: 2,
-    //     title: "次の本のタイトル",
-    //     subtitle: "サブタイトル",
-    //     category: "力",
-    //     categoryName: "ビジネス戦略",
-    //     author: "著者名",
-    //     date: "2025.01.20",
-    //     image: "画像URL",
-    //     excerpt: "紹介文",
-    //     url: "article-xxx.html",
-    //     rating: 8500,
-    //     featured: false
-    // }
 ];
 
 // カテゴリーデータ（記事数を自動カウント）
