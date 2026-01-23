@@ -29,6 +29,20 @@ const articlesData = [
         url: "article-jukkakukan.html",
         rating: 9200,
         featured: false
+    },
+    {
+        id: 3,
+        title: "悪いものが、来ませんように",
+        subtitle: "人間の依存と狂気を描いた傑作心理サスペンス",
+        category: "語",
+        categoryName: "小説・物語",
+        author: "芦沢央",
+        date: "2025.01.23",
+        image: "https://sspark.genspark.ai/cfimages?u1=vo0d3b5DHBMKunRL7aXWQKQaJy5Q4ydM1vBu%2FzIs8vNJGlDlTGbkEAMW9v%2BYalzzRFG7gJ5mYIYxz3S%2BbZwmmKDvxM%2BwdNpyXja3X5fF5tOOB4Ba5qkzcuk%3D&u2=hmg%2FrWfpDTjfpuAr&width=2560",
+        excerpt: "面白いが、インパクトには欠ける。依存関係と狂気を描いた心理サスペンスだが、この俺を完全に満足させるには至らなかった。",
+        url: "article-waruimono.html",
+        rating: 7200,
+        featured: false
     }
     // 新しい記事はここに追加
 ];

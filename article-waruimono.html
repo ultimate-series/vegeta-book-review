@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悪いものが、来ませんように | ベジータの戦闘力図書館</title>
+    <meta name="description" content="芦沢央の心理サスペンス傑作。この俺が認めた人間の闇を描く書物だ。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Shippori+Mincho+B1:wght@400;700;800&family=Zen+Antique&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #d4af37;
+            --dark-gold: #b8941f;
+            --light-gold: #f4e5b8;
+            --bg-white: #ffffff;
+            --bg-gray: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --border-light: #e0e0e0;
+            --danger-red: #dc3545;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Shippori Mincho B1', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: var(--bg-white);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: var(--bg-white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 20px 0;
+            border-bottom: 2px solid var(--primary-gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Yuji Mai', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--primary-gold);
+            color: var(--bg-white);
+        }
+
+        /* ネタバレ警告 */
+        .spoiler-warning {
+            background: linear-gradient(135deg, #fff0f0 0%, #ffe0e0 100%);
+            border: 3px solid var(--danger-red);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .spoiler-warning h3 {
+            font-family: 'Yuji Mai', serif;
+            color: var(--danger-red);
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .spoiler-warning p {
+            color: var(--text-dark);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* 記事ヘッダー */
+        .article-header {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .article-title {
+            font-family: 'Yuji Mai', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meta-label {
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .meta-value {
+            color: var(--text-gray);
+        }
+
+        .article-rating {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--bg-white);
+            border: 2px solid var(--primary-gold);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .rating-label {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 5px;
+        }
+
+        .rating-value {
+            font-family: 'Yuji Mai', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        /* 記事本文 */
+        .article-content {
+            background: var(--bg-white);
+            padding: 60px 0;
+        }
+
+        .article-content h2 {
+            font-family: 'Yuji Mai', serif;
+            color: var(--primary-gold);
+            font-size: 32px;
+            margin: 60px 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .article-content h3 {
+            color: var(--text-dark);
+            font-size: 24px;
+            margin: 40px 0 20px 0;
+            font-weight: 700;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .article-content strong {
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        /* ベジータ吹き出し */
+        .vegeta-speech {
+            display: flex;
+            gap: 25px;
+            margin: 50px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+            border-left: 5px solid var(--primary-gold);
+            border-radius: 10px;
+            align-items: center;
+        }
+
+        .vegeta-speech.right {
+            flex-direction: row-reverse;
+            border-left: none;
+            border-right: 5px solid var(--primary-gold);
+        }
+
+        .vegeta-avatar {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-gold);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .vegeta-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vegeta-text {
+            flex: 1;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* アフィリエイトリンク */
+        .affiliate-section {
+            background: var(--bg-gray);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+
+        .affiliate-title {
+            font-family: 'Yuji Mai', serif;
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .affiliate-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .affiliate-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+            color: var(--bg-white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .affiliate-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        /* フッター */
+        footer {
+            background: var(--text-dark);
+            color: var(--bg-white);
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 3px solid var(--primary-gold);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--bg-white);
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 32px;
+            }
+            
+            .vegeta-speech {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .vegeta-speech.right {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">ベジータの戦闘力図書館</a>
+                <a href="index.html" class="back-link">← トップに戻る</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 記事ヘッダー -->
+    <section class="article-header">
+        <div class="container">
+            <h1 class="article-title">悪いものが、来ませんように</h1>
+            
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span class="meta-label">著者:</span>
+                    <span class="meta-value">芦沢央</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">カテゴリー:</span>
+                    <span class="meta-value">語 - 小説・物語</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">評価日:</span>
+                    <span class="meta-value">2025.01.23</span>
+                </div>
+            </div>
+
+            <div class="article-rating">
+                <div class="rating-label">ベジータ戦闘力</div>
+                <div class="rating-value">7,200</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ネタバレ警告 -->
+    <div class="container">
+        <div class="spoiler-warning">
+            <h3>⚠️ ネタバレ注意 ⚠️</h3>
+            <p>この俺がネタバレ込みで評価する。<br>未読の貴様は、まず本を読んでから戻ってこい。<br>それが真の読者の心構えだ。</p>
+        </div>
+    </div>
+
+    <!-- 記事本文 -->
+    <section class="article-content">
+        <div class="container">
+            <div class="vegeta-speech">
+                <div class="vegeta-avatar">
+                    <img src="https://www.genspark.ai/api/files/s/gwvc31HY" alt="ベジータ" onerror="this.style.display='none'">
+                </div>
+                <div class="vegeta-text">
+                    貴様ら、「心理サスペンス」を甘く見ているんじゃないか？この書物は、人間の依存と狂気を描いた傑作だ。
+                </div>
+            </div>
+
+            <h2>■ この書物の真価</h2>
+            <p>芦沢央の<strong>「悪いものが、来ませんように」</strong>――この俺が認めた心理サスペンスの傑作だ。表面上は二人の女性の友情を描いているように見えるが、その実態は<strong>異常な依存関係と人間の闇</strong>を暴き出す物語だ。</p>
+
+            <p>貴様らは「友情」という言葉に騙されるな。この物語に描かれているのは、友情などではない。<strong>病的な執着と支配欲</strong>だ。</p>
+
+            <h2>■ 物語の構造 ― 三つの視点が織りなす罠</h2>
+            
+            <div class="vegeta-speech right">
+                <div class="vegeta-avatar">
+                    <img src="https://www.genspark.ai/api/files/s/gwvc31HY" alt="ベジータ" onerror="this.style.display='none'">
+                </div>
+                <div class="vegeta-text">
+                    この物語の構成こそが、この俺を唸らせた最大の戦術だ。
+                </div>
+            </div>
+
+            <h3>視点1: 紗英（さえ）の語り</h3>
+            <p>助産院で働く紗英。不妊治療がうまくいかず、夫・大志の浮気に苦しむ彼女。彼女にとって唯一の心の拠り所は、幼なじみの奈津子だった。</p>
+
+            <h3>視点2: 奈津子の語り</h3>
+            <p>子育て中の奈津子。夫や母親との関係に悩み、社会にうまく馴染めない彼女もまた、紗英を心の支えとしていた。</p>
+
+            <h3>視点3: 第三者の証言</h3>
+            <p>そして物語の合間に挿入される、<strong>事件の関係者たちへのインタビュー</strong>。この構成が、読者を完璧に騙す罠となる。</p>
+
+            <p>貴様らは気づいたか？この「第三者の証言」こそが、物語の真相を隠す煙幕だったことを。</p>
+
+            <div class="vegeta-speech">
+                <div class="vegeta-avatar">
+                    <img src="https://www.genspark.ai/api/files/s/gwvc31HY" alt="ベジータ" onerror="this.style.display='none'">
+                </div>
+                <div class="vegeta-text">
+                    ふん、この俺でさえ一瞬騙されかけた。芦沢央の戦術は見事だ。
+                </div>
+            </div>
+
+            <h2>■ 衝撃の真相 ― 一卵性母娘</h2>
+            <p>物語の核心は、<strong>紗英と奈津子の関係性</strong>にある。</p>
+
+            <p>貴様らは「親友」だと思っていただろう？違う。彼女たちは<strong>母と娘</strong>だ。しかも、ただの母娘ではない。<strong>一卵性双生児のように密接で、互いに依存し合う異常な関係</strong>だ。</p>
+
+            <p>奈津子は紗英を「守る」という名目で、彼女の人生に過度に介入し続けてきた。そして紗英もまた、奈津子なしでは生きられない存在になっていた。</p>
+
+            <h3>事件の真相</h3>
+            <p>紗英の夫・大志が殺された事件。紗英は夫の浮気を知り、蕎麦アレルギーを利用した殺害を計画していた。しかし、実行したのは<strong>奈津子</strong>だ。</p>
+
+            <p>奈津子は紗英の家に侵入し、紗英が作った蕎麦入り麦茶に<strong>さらに大量の蕎麦粉を混入</strong>させた。紗英では「思いきれないのではないか」と判断し、「完璧に」実行したのだ。</p>
+
+            <div class="vegeta-speech right">
+                <div class="vegeta-avatar">
+                    <img src="https://www.genspark.ai/api/files/s/gwvc31HY" alt="ベジータ" onerror="this.style.display='none'">
+                </div>
+                <div class="vegeta-text">
+                    この狂気こそが、人間の本質だ。愛という名の支配。守るという名の執着。貴様らも心当たりがあるんじゃないか？
+                </div>
+            </div>
+
+            <h2>■ 「悪いものが、来ませんように」の意味</h2>
+            <p>このタイトルは、奈津子が紗英に対して抱き続けてきた<strong>歪んだ願い</strong>を表している。</p>
+
+            <p>奈津子は紗英を「守る」ために、彼女の人生から「悪いもの」を排除し続けてきた。夫の浮気も、紗英の苦しみも、すべて「悪いもの」だ。そして、それを排除するために<strong>殺人すら厭わない</strong>。</p>
+
+            <p>だが、最も「悪いもの」だったのは、この<strong>異常な依存関係そのもの</strong>だったのだ。</p>
+
+            <h2>■ この書物が貴様らに教えること</h2>
+            
+            <div class="vegeta-speech">
+                <div class="vegeta-avatar">
+                    <img src="https://www.genspark.ai/api/files/s/gwvc31HY" alt="ベジータ" onerror="this.style.display='none'">
+                </div>
+                <div class="vegeta-text">
+                    依存は弱さの証だ。真の強者は、誰にも頼らず自分の力で立つ。貴様らも、この書物から学べ。
+                </div>
+            </div>
+
+            <h3>1. 依存関係の危険性</h3>
+            <p>誰かに依存しすぎることは、自分の判断力を失うことだ。紗英も奈津子も、互いに依存しすぎたがゆえに、正常な判断ができなくなった。</p>
+
+            <h3>2. 「善意」という名の支配</h3>
+            <p>奈津子の行動は、すべて「紗英のため」という善意から始まっている。だが、それは結局<strong>自己満足と支配欲</strong>に過ぎなかった。</p>
+
+            <p>貴様らも気をつけろ。「あなたのため」という言葉の裏に、相手の支配欲が隠れていることもあるのだ。</p>
+
+            <h3>3. 人間の二面性</h3>
+            <p>表面上は優しく見える人間が、内面では恐ろしい狂気を抱えていることもある。この書物は、<strong>人間の裏側</strong>を見事に描き出している。</p>
+
+            <h2>■ ベジータの最終評価</h2>
+            <p>芦沢央の「悪いものが、来ませんように」――<strong>面白いが、インパクトには欠ける</strong>というのが正直な評価だ。</p>
+
+            <p>物語の構成は巧妙だ。三つの視点を使った騙しのテクニックも悪くない。だが、<strong>真相が明らかになった瞬間の衝撃が弱い</strong>。「ああ、そうだったのか」とは思うが、「これは凄い！」とまでは思えなかった。</p>
+
+            <p>問題は、<strong>伏線の張り方が露骨すぎる</strong>点だ。注意深く読めば、途中で真相に気づいてしまう。この俺のような鋭い読者には、物足りない。</p>
+
+            <div class="vegeta-speech">
+                <div class="vegeta-avatar">
+                    <img src="https://www.genspark.ai/api/files/s/gwvc31HY" alt="ベジータ" onerror="this.style.display='none'">
+                </div>
+                <div class="vegeta-text">
+                    心理サスペンスとしては及第点だが、この俺を唸らせるほどではない。もっと強烈な一撃が欲しかったな。
+                </div>
+            </div>
+
+            <h3>良い点</h3>
+            <p>・<strong>読みやすい文体</strong>: サクサク読める。心理描写も丁寧だ。<br>
+            ・<strong>依存関係の描写</strong>: 紗英と奈津子の異常な関係性はリアルで気持ち悪い。<br>
+            ・<strong>構成の工夫</strong>: 三つの視点を使った騙しのテクニックは見事だ。</p>
+
+            <h3>物足りない点</h3>
+            <p>・<strong>真相の衝撃が弱い</strong>: 「やっぱりそうか」と思ってしまう。驚きが足りない。<br>
+            ・<strong>伏線が露骨</strong>: 注意深く読めば途中で気づいてしまう。もっと巧妙に隠すべきだった。<br>
+            ・<strong>キャラクターの魅力不足</strong>: 紗英も奈津子も、どこか薄っぺらい。もっと深く掘り下げてほしかった。</p>
+
+            <div class="vegeta-speech right">
+                <div class="vegeta-avatar">
+                    <img src="https://www.genspark.ai/api/files/s/gwvc31HY" alt="ベジータ" onerror="this.style.display='none'">
+                </div>
+                <div class="vegeta-text">
+                    戦闘力7,200。悪くはないが、この俺を完全に満足させるには至らなかった。心理サスペンス入門としてなら、読む価値はある。
+                </div>
+            </div>
+
+            <h3>こんな貴様におすすめ</h3>
+            <p>・心理サスペンスを初めて読む者<br>
+            ・依存関係や人間の闇に興味がある者<br>
+            ・読みやすい文体を好む者</p>
+
+            <h3>こんな貴様には向いていない</h3>
+            <p>・衝撃的などんでん返しを期待する者<br>
+            ・深い人間描写を求める者<br>
+            ・この俺のような鋭い読者（物足りなく感じる）</p>
+
+            <!-- アフィリエイトリンク -->
+            <div class="affiliate-section">
+                <h3 class="affiliate-title">この書物を手に入れろ</h3>
+                <div class="affiliate-links">
+                    <a href="https://www.amazon.co.jp/dp/4041044421" class="affiliate-button" target="_blank" rel="noopener">Amazonで購入</a>
+                    <a href="https://books.rakuten.co.jp/rb/14302729/" class="affiliate-button" target="_blank" rel="noopener">楽天ブックスで購入</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy-policy.html">プライバシーポリシー</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 ベジータの戦闘力図書館. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
